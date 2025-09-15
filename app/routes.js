@@ -5,7 +5,7 @@ const router = express.Router()
 
 
 // Called when answering question about whether NHS number is known
-router.post('/magical-powers-answer', (req, res) => {
+router.post('/magical-powers-answers', (req, res) => {
 
   // Make a variable and give it the value from 'nhsNumberKnown'
   const hasSymptoms = req.session.data.hasSymptoms
@@ -14,7 +14,7 @@ router.post('/magical-powers-answer', (req, res) => {
   if (hasSymptoms === 'Yes') {
 
     // Send user to a page where they’ll enter their NHS number
-    res.redirect('/confirmation')
+    res.redirect('/details')
 
   } else if (hasSymptoms === 'No') {
 
@@ -24,7 +24,7 @@ router.post('/magical-powers-answer', (req, res) => {
   } else {
 
     // Send user back to the question page
-    res.redirect('/do-you-know-your-nhs-number')
+    res.redirect('/start-page')
 
   }
 })
