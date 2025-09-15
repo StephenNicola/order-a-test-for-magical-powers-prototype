@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% from 'button/macro.njk' import button %}
+{% from 'summary-list/macro.njk' import summaryList %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "/details",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhsuk-heading-l">Check your answers wether you have magical powers</h1>
+
+      <h2 class="nhsuk-heading-m">
+        Your answers
+      </h2>
+
+      {{ summaryList({
+        rows: [
+          {
+            key: {
+              text: "Magical powers"
+            },
+            value: {
+              text: data.hasSymptoms
+            },
+            actions: {
+              items: [
+                {
+                  href: "/magical-powers",
+                  text: "Change",
+                  visuallyHiddenText: "NHS number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Details"
+            },
+            value: {
+              text: data.details
+            },
+            actions: {
+              items: [
+                {
+                  href: "details",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          }
+
+        ]
+      }) }}
+
+
+
+      <form action="/confirmation" method="post" novalidate>
+        {{ button({
+          text: "Confirm and send"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+  
+{% endblock %}
+

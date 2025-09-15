@@ -16,13 +16,14 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <form action="/form-handler" method="post" novalidate>
+      <form action="/check-your-answers" method="post" novalidate>
 
         {% from 'textarea/macro.njk' import textarea %}
 
         {{ textarea({
-          name: "example",
+          name: "details",
           id: "example",
+          value: data.details,
           label: {
             text: "Can you provide more detail about what the hell you can do?",
             classes:"nhsuk-label--l",
@@ -31,6 +32,7 @@
           hint: {
             text: "Do not include personal information like your name, date of birth or NHS number"
           }
+
         }) }}
 
         {{ button({
