@@ -23,12 +23,35 @@
 
       {{ summaryList({
         rows: [
-          {
+          
+          
+           {
             key: {
               text: "Magical powers"
             },
             value: {
               text: data.hasSymptoms
+            },
+
+            actions: {
+              items: [
+                {
+                  href: "/magical-powers",
+                  text: "Change",
+                  visuallyHiddenText: "NHS number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Potential powers"
+            },
+            value: {
+              text: "not listed"
+            },
+            value: {
+              text: data.powers
             },
             actions: {
               items: [

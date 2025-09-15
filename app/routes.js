@@ -24,7 +24,7 @@ router.post('/magical-powers-answers', (req, res) => {
   } else {
 
     // Send user back to the question page
-    res.redirect('/start-page')
+    res.redirect('/not-sure')
 
   }
 })

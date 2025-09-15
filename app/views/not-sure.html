@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+
+{% from 'back-link/macro.njk' import backLink %}
+{% from 'button/macro.njk' import button %}
+{% from 'radios/macro.njk' import radios %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "magical-powers",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/details" method="post" novalidate>
+
+        {{ radios({
+          name: "powers",
+          fieldset: {
+            legend: {
+              text: "Can you do any of the following?",
+              isPageHeading: true,
+              classes: "nhsuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Turn invisible",
+              text: "Turn invisible"
+            },
+            {
+              value: "Float",
+              text: "Float"
+            },
+            {
+              value: "Make things dissappear",
+              text: "Make things dissappear"
+            },
+            {
+              value: "Shapeshift",
+              text: "Shapeshift"
+            },
+                        {
+              value: "None of these",
+              text: "None of these"
+            }
+          ]
+        }) }}
+
+        {{ button({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
