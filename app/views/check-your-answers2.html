@@ -5,7 +5,7 @@
 
 {% block beforeContent %}
   {{ backLink({
-    href: "/details",
+    href: "/not-sure",
     text: "Back"
   }) }}
 {% endblock %}
@@ -45,17 +45,20 @@
           },
           {
             key: {
-              text: "Details"
+              text: "Potential powers"
             },
             value: {
-              text: data.details
+              text: "not listed"
+            },
+            value: {
+              text: data.powers
             },
             actions: {
               items: [
                 {
-                  href: "details",
+                  href: "not-sure",
                   text: "Change",
-                  visuallyHiddenText: "name"
+                  visuallyHiddenText: "NHS number"
                 }
               ]
             }

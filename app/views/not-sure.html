@@ -17,7 +17,7 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <form action="/details" method="post" novalidate>
+      <form action="/powers-answer" method="post" novalidate>
 
         {{ radios({
           name: "powers",
@@ -28,6 +28,8 @@
               classes: "nhsuk-fieldset__legend--l"
             }
           },
+          value: data.powers,
+
           items: [
             {
               value: "Turn invisible",
@@ -42,11 +44,11 @@
               text: "Make things dissappear"
             },
             {
-              value: "Shapeshift",
+              value: "Shapeshiftes",
               text: "Shapeshift"
             },
                         {
-              value: "None of these",
+              value: "no",
               text: "None of these"
             }
           ]
