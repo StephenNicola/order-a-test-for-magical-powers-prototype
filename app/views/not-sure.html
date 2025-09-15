@@ -19,7 +19,7 @@
     <div class="nhsuk-grid-column-two-thirds">
       <form action="/powers-answer" method="post" novalidate>
 
-        {{ radios({
+        {{ checkboxes ({
           name: "powers",
           fieldset: {
             legend: {
@@ -28,7 +28,7 @@
               classes: "nhsuk-fieldset__legend--l"
             }
           },
-          value: data.powers,
+          values: data.powers,
 
           items: [
             {
@@ -49,7 +49,8 @@
             },
                         {
               value: "no",
-              text: "None of these"
+              text: "None of these",
+              exclusive: true
             }
           ]
         }) }}

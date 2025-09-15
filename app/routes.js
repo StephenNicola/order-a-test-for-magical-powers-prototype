@@ -36,15 +36,19 @@ router.post('/powers-answer', (req, res) => {
   const powers = req.session.data.powers
 
   // Check whether the variable matches a condition
-  if (powers === 'no') {
+  if (powers && powers.includes("no")) {
 
     // Send user to a page where they’ll enter their NHS number
     res.redirect('/ineligible')
 
-  } else {
+  }
+  else if (powers){
+    res.redirect("/check-your-answers2")
+  }
+  else {
 
     // Send user back to the question page
-    res.redirect('/check-your-answers2')
+    res.redirect('/not-sure')
 
   }
 })
